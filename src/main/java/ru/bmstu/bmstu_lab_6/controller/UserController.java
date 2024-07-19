@@ -3,9 +3,11 @@ package ru.bmstu.bmstu_lab_6.controller;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSetter;
+import jakarta.annotation.security.PermitAll;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import ru.bmstu.bmstu_lab_6.dto.UserDTO;
 import ru.bmstu.bmstu_lab_6.entity.User;

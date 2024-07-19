@@ -10,5 +10,5 @@ import java.util.List;
 @Repository
 public interface PlayedGameRepository extends JpaRepository<PlayedGame,Long> {
 
-	List<PlayedGame> findPlayedGamesByOwnerPlayer(Player player);
+	List<PlayedGame> findPlayedGamesByPlayerLogin(String playerLogin);
 }

@@ -25,7 +25,7 @@ public class PlayedGameService {
 		PlayedGame playedGame = PlayedGame.builder()
 				.gameIsWon(playedGameDTO.isGameIsWon())
 				.playedMap(mapRepository.findOneByOwnerPlayerAndMapName(ownerPlayer, playedGameDTO.getMapName()))
-				.ownerPlayer(ownerPlayer)
+				.playerLogin(ownerPlayer.getPlayerLogin())
 				.build();
 		playedGameRepository.save(playedGame);
 		return playedGame;
@@ -37,7 +37,7 @@ public class PlayedGameService {
 
 	public List<PlayedGame> readAllByLogin(String login) {
 		Player ownerPlayer = playerRepository.findByPlayerLogin(login);
-		return playedGameRepository.findPlayedGamesByOwnerPlayer(ownerPlayer);
+		return playedGameRepository.findPlayedGamesByPlayerLogin(login);
 	}
 
 	public PlayedGame update(PlayedGame playedGame) {

@@ -22,6 +22,9 @@ public class PlayerController {
 		if (playerLogin == null || playerLogin.isEmpty()) {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
+		if (playerService.getByLogin(playerLogin) != null) {
+			return new ResponseEntity<>(HttpStatus.CONFLICT);
+		}
 		return new ResponseEntity<>(playerService.createByLogin(playerLogin), HttpStatus.CREATED);
 	}
 

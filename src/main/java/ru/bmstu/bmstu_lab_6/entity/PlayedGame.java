@@ -1,6 +1,5 @@
 package ru.bmstu.bmstu_lab_6.entity;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,9 +17,7 @@ public class PlayedGame {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long playedGameId;
-	@ManyToOne
-	@JoinColumn
-	private Player ownerPlayer;
+	private String playerLogin;
 	private boolean gameIsWon;
 	@ManyToOne
 	@JoinColumn
